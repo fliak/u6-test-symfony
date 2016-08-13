@@ -1,0 +1,44 @@
+{% extends 'task12/layout.html.twig' %}
+
+
+{% block title %}
+    <title>Task 2</title>
+{% endblock %}
+
+{% block assets %}
+    <link rel="stylesheet" href="bundles/app/css/task2.css" />
+
+    <script type="application/javascript" src="bundles/app/js/app.js"></script>
+
+    <script type="application/javascript" src="bundles/app/js/controller/task2-controller.js"></script>
+
+    <script type="application/javascript" src="bundles/app/js/service/http.js"></script>
+    <script type="application/javascript" src="bundles/app/js/service/menu-builder.js"></script>
+    <script type="application/javascript" src="bundles/app/js/service/promise.js"></script>
+    <script type="application/javascript" src="bundles/app/js/service/timer.js"></script>
+    <script type="application/javascript" src="bundles/app/js/service/menu-control.js"></script>
+
+
+{% endblock %}
+
+{% block content %}
+    <body controller="task2Controller" class="hidden">
+
+    <header>
+        <div class="logo"></div>
+    </header>
+
+    <a id="menu-toggle">Sidemenu</a>
+
+    {% include 'partial/recursive-menu-iterator.html.twig' with { row: topRow, deepIndex: 0, parentId: 0 } %}
+
+    <article>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </article>
+
+
+
+    </body>
+
+
+{% endblock %}

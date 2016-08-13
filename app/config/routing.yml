@@ -1,0 +1,11 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+
+#Stubs for simple_form authentication
+login:
+    path: /login
+
+logout:
+    path: /logout

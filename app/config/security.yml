@@ -1,0 +1,32 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    providers:
+        custom_user_provider:
+            id: custom_user_provider
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: true
+            pattern:    ^/
+            provider: custom_user_provider
+            simple_form:
+                authenticator: custom_authenticator
+                check_path: login
+                login_path: login
+                require_previous_session: false
+                use_referer: true
+
+            logout:
+                path:   /logout
+                target: /task3 #hardcode returning to task3 after logout
+
+
+    access_control:
+

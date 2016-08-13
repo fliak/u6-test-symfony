@@ -1,0 +1,20 @@
+
+
+{% if deepIndex == 0 %}
+    {% set nestedClass = 'top' %}
+{% else %}
+    {% set nestedClass = 'nested' %}
+{% endif %}
+
+<menu class="level-{{ deepIndex }} {{ nestedClass }}" menu-id="{{ parentId }}">
+
+{% for element in row %}
+
+    <li element-id="{{ element.id }}">{{ element.title }}
+        {% if element.children.count() %}
+            {% include 'partial/recursive-menu-iterator.html.twig' with { row: element.children, deepIndex: deepIndex + 1, parentId: element.id } %}
+        {% endif %}
+    </li>
+
+{% endfor %}
+</menu>

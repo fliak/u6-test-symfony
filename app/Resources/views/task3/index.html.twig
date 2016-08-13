@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task3</title>
+
+    <link rel="stylesheet" href="bundles/app/css/task3.css" />
+
+    <script type="application/javascript">
+        window.addEventListener("load", function () {
+            var dataForm = document.forms.namedItem('data-form');
+            if (dataForm) {
+                dataForm.addEventListener('submit', function () {
+                    dataForm.querySelector('textarea').innerHTML = dataForm.querySelector('article').innerText;
+                });
+            }
+        });
+    </script>
+
+</head>
+<body>
+
+
+<div id="wrapper" class="wrapper">
+    {% set isLogged = is_granted('IS_AUTHENTICATED_FULLY') %}
+
+    {% if isLogged %}
+        <form action="{{ path('logout') }}" method="post">
+            <button class="auth-button" type="submit" >Logout</button>
+        </form>
+    {% else %}
+        <form action="{{ path('login') }}" method="post">
+            <button class="auth-button" type="submit" name="_username" value="admin">Login as Admin</button>
+        </form>
+    {% endif %}
+
+    {% if isLogged %}
+
+        <form name="data-form" action="{{ path('task3') }}" method="post">
+            <article contenteditable="true" id="data">{{ data | raw }}</article>
+            <textarea name="data" class="hidden"></textarea>
+            <button type="submit" id="save" class="">Save</button>
+        </form>
+    {% else %}
+        <article id="data">{{ data | raw }}</article>
+    {% endif %}
+
+
+
+    <article id="page">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </article>
+</div>
+
+
+</body>
+</html>

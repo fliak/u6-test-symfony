@@ -1,0 +1,29 @@
+
+.wrapper    {
+    border: solid black medium;
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.auth-button  {
+    margin-top: 30px;
+}
+
+
+#data {
+    border: solid black thin;
+    margin: 30px;
+    height: 200px;
+}
+
+#page   {
+    margin: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 125px;
+}
+
+.hidden {
+    display: none !important;
+}
