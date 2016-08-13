@@ -14,6 +14,9 @@ mysql -u root -proot u6_test < docs/fixtures.sql
 Database should be compatible with native app version.
 
 
+composer install
+
+
 
 Run
 ---
