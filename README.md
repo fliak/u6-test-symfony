@@ -1,5 +1,5 @@
 
-U6-test-native
+U6-test-symfony
 ==============
 
 
